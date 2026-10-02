@@ -1,0 +1,50 @@
+/* Mobile shell: preserve the printed sheet, use the full available screen. */
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{min-height:100svh}
+button{-webkit-tap-highlight-color:transparent}
+dialog{max-height:calc(100dvh - 24px);overflow-y:auto;overscroll-behavior:contain}
+@media(max-width:700px){
+ body{padding-left:env(safe-area-inset-left);padding-right:env(safe-area-inset-right)}
+ header{max-width:none;padding:calc(6px + env(safe-area-inset-top)) 8px 5px;gap:6px;min-height:62px}
+ h1{font-size:18px;letter-spacing:-.6px}
+ header p{font-size:10px;max-width:145px;margin:3px 0 0;line-height:1.2}
+ .actions{gap:5px;flex-shrink:0}
+ .actions button{font-size:12px;min-height:44px;padding:8px 9px}
+ main{max-width:none;padding:0;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:start}
+ nav{grid-column:1;grid-row:1;gap:18px;padding-left:10px;min-height:44px}
+ .tab{font-size:14px;min-height:44px;padding:9px 0}
+ .tools{grid-column:2;grid-row:1;padding:0 8px 0 4px;height:44px;border-bottom:1px solid #c8ceca}
+ .tools>span{display:none}
+ .tools button{min-height:40px;font-size:12px;padding:7px 10px}
+ #help{grid-column:1/-1;margin:6px 8px;font-size:14px}
+ .sheet{grid-column:1/-1;width:100%;min-width:0;border-left:0;border-right:0;border-radius:0;padding:3% 2%;box-shadow:none;display:flex;flex-direction:column;justify-content:space-between;gap:3cqw;min-height:calc(100svh - 106px - env(safe-area-inset-top) - env(safe-area-inset-bottom))}
+ .sheet>.top-area{flex:none;margin-bottom:0}
+ .sheet>.upper-zones{flex:none;margin-bottom:0}
+ .sheet .upper-zones>.zone{margin-bottom:0}
+ .sheet>.lane{flex:none;margin-bottom:0}
+ .sheet>.blue.lane{margin-top:2cqw}
+ .sheet>.green.lane{margin-top:1cqw}
+ #scores{grid-column:1/-1;min-width:0;border-radius:0;padding:12px 6px}
+ #scores .score-intro{font-size:13px}
+ #scores .score-row input{font-size:16px}
+ footer{grid-column:1/-1;margin:0;padding:10px 6px calc(10px + env(safe-area-inset-bottom));font-size:10px}
+ dialog{width:100%;max-width:none;max-height:calc(100dvh - 12px - env(safe-area-inset-top));margin:auto 0 0;border-radius:18px 18px 0 0;padding:18px 16px calc(16px + env(safe-area-inset-bottom))}
+ dialog h2{font-size:18px;margin-bottom:12px}
+ .quick-numbers{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:12px 0}
+ .quick-numbers button{min-height:48px;font-size:20px}
+ .color-options button{min-height:62px;font-size:14px}
+ .dialog-actions button{min-height:44px;flex:1}
+}
+/* Landscape remains full-width and scrolls vertically; never shrink to fit height. */
+@media(orientation:landscape) and (max-height:600px) and (pointer:coarse){
+ header,main{max-width:none}
+ main{padding:0 max(8px,env(safe-area-inset-left)) 0 max(8px,env(safe-area-inset-right))}
+ .sheet{width:100%;min-height:0}
+ dialog{max-width:540px;margin:auto;max-height:calc(100dvh - 16px);padding:12px 18px;border-radius:14px}
+ .quick-numbers{grid-template-columns:repeat(6,minmax(0,1fr));gap:6px;margin:8px 0}
+ .quick-numbers button{min-height:40px;padding:6px}
+ .color-options{grid-template-columns:repeat(6,minmax(0,1fr))}
+ .color-options button{padding:5px 2px;min-height:52px;font-size:12px}
+ dialog h2{margin-bottom:8px;font-size:16px}
+ #number-input{padding:6px;font-size:24px}
+}
