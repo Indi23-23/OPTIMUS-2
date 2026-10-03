@@ -1,10 +1,14 @@
 /* Increment VERSION after changing any application asset. */
-const VERSION = 'v2-score-icons';
+const VERSION = 'v3-update-recovery';
 const PREFIX = `optimus2-${self.registration.scope}-`;
 const CACHE = PREFIX + VERSION;
 const ASSETS = ['./index.html','./style.css','./board.css','./mobile.css','./symbols.js','./game.js','./store.js','./scoring.js','./app.js','./offline.js','./manifest.webmanifest','./icon-192.png','./icon-512.png','./apple-touch-icon.png','./README.md'];
 self.addEventListener('install', event => {
- event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(ASSETS)));
+ event.waitUntil((async()=>{
+  const cache=await caches.open(CACHE);
+  await cache.addAll(ASSETS.map(path=>new Request(new URL(path,self.registration.scope),{cache:'reload'})));
+  await self.skipWaiting();
+ })());
 });
 self.addEventListener('activate', event => {
  event.waitUntil((async()=>{
