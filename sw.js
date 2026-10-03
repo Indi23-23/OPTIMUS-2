@@ -1,5 +1,5 @@
 /* Increment VERSION after changing any application asset. */
-const VERSION = 'v1';
+const VERSION = 'v2-score-icons';
 const PREFIX = `optimus2-${self.registration.scope}-`;
 const CACHE = PREFIX + VERSION;
 const ASSETS = ['./index.html','./style.css','./board.css','./mobile.css','./symbols.js','./game.js','./store.js','./scoring.js','./app.js','./offline.js','./manifest.webmanifest','./icon-192.png','./icon-512.png','./apple-touch-icon.png','./README.md'];

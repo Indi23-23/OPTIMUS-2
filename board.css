@@ -105,3 +105,10 @@ header,main{max-width:920px}
 
 #scores output.auto-score{background:#fffffb;border:3px solid var(--color);font-size:clamp(14px,3vw,25px);font-weight:800}
 @media(max-width:620px){#scores output.auto-score{border-width:2px}}
+
+/* Score-sheet headings use the printed sheet’s symbols, with accessible names. */
+#scores .score-heading>.score-icon-heading{display:grid;place-items:center;padding:6px 2px;border:0;border-radius:8px;min-width:0;height:clamp(40px,7vw,64px)}
+#scores .score-icon-heading svg{display:block;width:clamp(24px,4vw,40px);height:clamp(24px,4vw,40px);max-width:100%}
+#scores .score-icon-heading:is(.gray,.yellow,.blue,.green,.pink){background:var(--color)}
+#scores .score-heading>.fox{border:2px solid var(--color);background:#fffffb}
+#scores .score-heading>.score-sum{font-size:clamp(25px,4vw,38px);font-weight:800}
